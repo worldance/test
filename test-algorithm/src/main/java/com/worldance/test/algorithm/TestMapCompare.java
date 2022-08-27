@@ -6,7 +6,7 @@ package com.worldance.test.algorithm;
 public class TestMapCompare {
 
     public static void main(String[] args) {
-
+        System.out.println("11");
     }
 
 
