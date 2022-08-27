@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.worldance.test.mybatis.dao.SqlBuildTablesMapper" >
+  <resultMap id="BaseResultMap" type="com.worldance.test.mybatis.model.SqlBuildTables" >
+    <result column="PID" property="pid" jdbcType="INTEGER" />
+    <result column="TABLE_REG_NAME" property="tableRegName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="getSqlBuildTablesById" parameterType="Integer" resultMap="BaseResultMap">
+  	select PID,TABLE_REG_NAME from tb_sqlbuild_tables 
+  	where pid=#{pid,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="insert" parameterType="com.worldance.test.mybatis.model.SqlBuildTables" >
+    insert into tb_sqlbuild_tables (PID, TABLE_REG_NAME)
+    values (#{pid,jdbcType=INTEGER}, #{tableRegName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.worldance.test.mybatis.model.SqlBuildTables" >
+    insert into tb_sqlbuild_tables
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        PID,
+      </if>
+      <if test="tableRegName != null" >
+        TABLE_REG_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="tableRegName != null" >
+        #{tableRegName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
