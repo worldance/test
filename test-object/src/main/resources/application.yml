@@ -1,0 +1,8 @@
+server:
+  servlet:
+    context-path: /testObject
+  port: 9081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
