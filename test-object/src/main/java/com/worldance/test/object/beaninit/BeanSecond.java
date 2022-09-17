@@ -1,6 +1,8 @@
 package com.worldance.test.object.beaninit;
 
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -9,24 +11,26 @@ import org.springframework.stereotype.Component;
 @Data
 public class BeanSecond implements DisposableBean {
 
+   private static Logger Logger = LoggerFactory.getLogger(BeanSecond.class);
+
     @Value("BeanSecond:")
     private String name;
 
     public BeanSecond() {
-        System.out.println("BeanScan:BeanSecond初始化");
+        Logger.info("BeanScan:BeanSecond初始化");
     }
 
     public BeanSecond(String name) {
         this.name = name;
-        System.out.println(this.name + "初始化1");
+        Logger.info(this.name + "初始化1");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println(this.name + "destroy()");
+        Logger.info(this.name + "destroy()");
     }
 
     public void beanSecondDestroy() {
-        System.out.println(this.name + "beanSecondDestroy()");
+        Logger.info(this.name + "beanSecondDestroy()");
     }
 }

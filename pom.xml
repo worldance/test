@@ -60,6 +60,13 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.worldance.test</groupId>
+            <artifactId>test-io</artifactId>
+            <version>${test.project.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

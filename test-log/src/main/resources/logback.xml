@@ -2,6 +2,9 @@
 <configuration scan="true" scanPeriod="10 seconds" debug="true">
     <property name = "log_dir" value = "E:/sourceCode/worldance/test/test-log/logs"/>
     <property name = "test_log_file_name" value = "testLog"/>
+    <property name = "test_io_file_name" value = "testIO"/>
+    <property name = "test_object_file_name" value = "testObject"/>
+
     <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%file:%line] - %msg %xEx%n"/>
 
     <appender name = "Console" class = "ch.qos.logback.core.ConsoleAppender">
@@ -10,7 +13,7 @@
         </encoder>
     </appender>
 
-    <appender name="RollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="TestLogRollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log_dir}/${test_log_file_name}</file>
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log_dir}/${test_log_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
@@ -22,10 +25,22 @@
         </encoder>
     </appender>
 
-    <appender name = "RollingFileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log_dir}/${test_log_file_name}-error</file>
+    <appender name = "TestIORollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/${test_io_file_name}</file>
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${log_dir}/${test_log_file_name}-error-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <fileNamePattern>${log_dir}/${test_io_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <maxFileSize>1MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name = "TestObjectRollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/${test_object_file_name}</file>
+        <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/${test_object_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>10</maxHistory>
             <maxFileSize>1MB</maxFileSize>
         </rollingPolicy>
@@ -35,7 +50,15 @@
     </appender>
 
     <logger name="com.worldance.test.testlog">
-        <appender-ref ref="RollingFileInfo" level="DEBUG"></appender-ref>
+        <appender-ref ref="TestLogRollingFileInfo" level="DEBUG"></appender-ref>
+    </logger>
+
+    <logger name="com.worldance.test.testio">
+        <appender-ref ref="TestIORollingFileInfo" level="DEBUG"></appender-ref>
+    </logger>
+
+    <logger name="com.worldance.test.object">
+        <appender-ref ref="TestObjectRollingFileInfo" level="DEBUG"></appender-ref>
     </logger>
 
     <root level="debug">
