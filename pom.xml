@@ -31,6 +31,7 @@
         <module>test-generic</module>
         <module>test-data_structure</module>
         <module>test-mybatis</module>
+        <module>test-log</module>
     </modules>
 
     <dependencies>
