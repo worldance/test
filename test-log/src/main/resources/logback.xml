@@ -18,7 +18,7 @@
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log_dir}/${test_log_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>10</maxHistory>
-            <maxFileSize>1MB</maxFileSize>
+<!--            <maxFileSize>1MB</maxFileSize>-->
         </rollingPolicy>
         <encoder>
             <pattern>${pattern}</pattern>
@@ -30,7 +30,7 @@
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log_dir}/${test_io_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>10</maxHistory>
-            <maxFileSize>1MB</maxFileSize>
+<!--            <maxFileSize>1MB</maxFileSize>-->
         </rollingPolicy>
         <encoder>
             <pattern>${pattern}</pattern>
@@ -42,7 +42,7 @@
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log_dir}/${test_object_file_name}-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>10</maxHistory>
-            <maxFileSize>1MB</maxFileSize>
+<!--            <maxFileSize>1MB</maxFileSize>-->
         </rollingPolicy>
         <encoder>
             <pattern>${pattern}</pattern>

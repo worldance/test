@@ -63,7 +63,7 @@
 
         <dependency>
             <groupId>com.worldance.test</groupId>
-            <artifactId>test-io</artifactId>
+            <artifactId>test-log</artifactId>
             <version>${test.project.version}</version>
         </dependency>
 
