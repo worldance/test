@@ -1,8 +1,12 @@
 package com.worldance.commontest.test;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CommonTest {
+
+    private static Logger Logger  = LoggerFactory.getLogger(CommonTest.class);
 
 
     @Test
@@ -13,6 +17,15 @@ public class CommonTest {
         System.out.println(callTimesRate);
         System.out.println(topValue);
         System.out.println(callTimesRate < topValue);
+    }
+
+    @Test
+    public void instanceTest() {
+        String str = null;
+        Logger.info("str instanceof String : {}", str instanceof String);
+
+        str = "";
+        Logger.info("str instanceof String : {}", str instanceof String);
     }
 
 }
