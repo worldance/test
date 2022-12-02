@@ -61,11 +61,11 @@
             <version>1.18.24</version>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>com.worldance.test</groupId>
             <artifactId>test-log</artifactId>
             <version>${test.project.version}</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
